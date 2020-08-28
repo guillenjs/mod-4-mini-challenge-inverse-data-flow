@@ -87,10 +87,8 @@ class App extends React.Component {
 
   // TODO: use me to add a new spice when the NewSpice form submits
   addNewSpice = newSpice => {
-
     this.setState(prevState => {
       const updatedSpices = [newSpice, ...prevState.spices]
-
       return {
         spices: updatedSpices
       }
@@ -102,7 +100,7 @@ class App extends React.Component {
       <>
         <Header spiceCount={this.state.spices.length} />
         <main>
-          <NewSpice />
+          <NewSpice addNewSpice = {this.addNewSpice}/>
           <SpiceList spices={this.state.spices} />
         </main>
       </>

@@ -17,10 +17,23 @@ class SpiceList extends React.Component {
       ))
   }
 
+  updateSearch = (evt) => {
+    this.setState({
+      search: evt
+    },()=>console.log(this.state.search))
+  }
+
+  updateStars = (evt) => {
+    console.log("I am inside update stars")
+    this.setState({
+      fourStarOnly: !this.state.fourStarOnly
+    },()=>{console.log(this.state.fourStarOnly)})
+  }
+
   render() {
     return (
       <section className="spice-list">
-        <Filter search={this.state.search} fourStarOnly={this.state.fourStarOnly} />
+        <Filter updateStars={this.updateStars} updateSearch={this.updateSearch} search={this.state.search} fourStarOnly={this.state.fourStarOnly} />
         {this.renderSpices()}
       </section>
     )
